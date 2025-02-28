@@ -2,7 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 
 public class LoginPage {
@@ -13,13 +13,25 @@ public class LoginPage {
 	By txt_password = By.id("password");
 	By btn_Login = By.id("Login");
 	By lbl_logo = By.id("logo");
+	By btn_viewAllCard = By.xpath("//*[text()='View All Cards']");
+	By btn_category = By.className("viewAllLink");
 	
 	public LoginPage(WebDriver driver)
 	
 	{
 		this.driver=driver;
 	}
+
+
 	
+	public void clickViewAll() {
+		driver.findElement(btn_viewAllCard).click();
+	
+	}
+	public void clickCategory() {
+	 driver.findElement(btn_category).click();
+	
+	}
 	
 	public void enterUsername(String username) {
 		driver.findElement(txt_username).sendKeys(username);

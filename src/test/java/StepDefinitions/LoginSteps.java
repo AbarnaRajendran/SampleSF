@@ -1,17 +1,25 @@
 package StepDefinitions;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.Alert;
 
 import Pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.time.Duration;
 
 
 
@@ -61,6 +69,33 @@ public class LoginSteps {
 	@Then("Close the Browser")
 	public void close_the_browser() {
 	    driver.close();
+	}
+	
+	@Then("select view all cart")
+	public void select_view_all_cart() {
+		
+		ChromeOptions options = new ChromeOptions();
+		HashMap<String, Integer> contentSettings = new HashMap<String,Integer>();
+		HashMap<String, Object> profile = new HashMap<String,Object>();
+		HashMap<String, Object> prefs = new HashMap<String,Object>();
+		
+		contentSettings.put("notifications", 2);
+
+    //    options.addArguments("--disable-notifications");  // Disable all notifications
+
+        // Initialize ChromeDriver with the specified options
+        driver = new ChromeDriver(options);
+	    WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(50));
+	    WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("alertTriggerButton")));
+
+	    wait.until(ExpectedConditions.alertIsPresent());
+	    Alert alert = driver.switchTo().alert();
+	    System.out.println(alert.getText());
+	    alert.accept();
+	}
+	@And("list out the all drop down values")
+	public void list_out_the_all_drop_down_values() {
+		login.clickCategory();
 	}
 
 	
