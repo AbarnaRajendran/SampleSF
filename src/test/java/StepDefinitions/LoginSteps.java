@@ -68,7 +68,7 @@ public class LoginSteps {
 
 	@Then("Close the Browser")
 	public void close_the_browser() {
-	    driver.close();
+	    driver.quit();
 	}
 	
 	@Then("select view all cart")
