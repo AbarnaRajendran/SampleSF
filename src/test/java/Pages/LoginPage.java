@@ -24,13 +24,13 @@ public class LoginPage {
 	By btn_sales =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[4]");
 	By btn_service =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[5]");
 //	By btn_Contact_import =By.xpath("//*[text()='Import']");
-	By btn_contact =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[2]");
 
 	By btn_Contact_import =By.xpath("(//*[@class=\"forceActionLink\"])[1]");
 	By btn_Contact_SendListEmail =By.xpath("//*[text()='Send List Email']");
 	By btn_Contact_AddToCadence =By.xpath("//*[text()='Add to Cadence']");
 	By btn_Contact_New =By.xpath("//*[text()='New']");
 	By btn_Contact_AssignLable =By.xpath("//*[text()='Assign Label']");
+	By btn_contact =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[2]");
 
 	
 	public LoginPage(WebDriver driver)

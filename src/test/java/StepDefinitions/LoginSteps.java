@@ -86,12 +86,15 @@ public class LoginSteps {
 	@And("list out the all drop down values")
 	public void list_out_the_all_drop_down_values() {
 		login.clickCategory();
+		
 	}
 
 	 @Then("select the contact menu")
 	    public void select_the_contact_menu() throws InterruptedException {
 		 Thread.sleep(1000);
-	       login.click_contact();
+		 login.click_contact();
+	 	   System.out.println("contact Menu Visible");
+
 	       
 	    }
 
@@ -118,7 +121,7 @@ public class LoginSteps {
 	    }
 	    @Then("select Home menu")
 	    public void select_home_menu() throws InterruptedException {
-	    	Thread.sleep(1200);
+	    	Thread.sleep(1000);
 	        login.click_Home();
 		 	   System.out.println("Home Menu Visible");
 
