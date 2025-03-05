@@ -9,5 +9,6 @@ import io.cucumber.junit.Cucumber;
  @CucumberOptions(features="src/test/resources/Features",glue="StepDefinitions", monochrome= true,
  plugin= {"pretty","json:target/MyReports/reports.json"},
  publish=true)
+ 
 public class TestRunner {
 }

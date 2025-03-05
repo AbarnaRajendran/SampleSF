@@ -72,33 +72,89 @@ public class LoginSteps {
 	}
 	
 	@Then("select view all cart")
-	public void select_view_all_cart() {
-		
-		ChromeOptions options = new ChromeOptions();
-		HashMap<String, Integer> contentSettings = new HashMap<String,Integer>();
-		HashMap<String, Object> profile = new HashMap<String,Object>();
-		HashMap<String, Object> prefs = new HashMap<String,Object>();
-		
-		contentSettings.put("notifications", 2);
-
-    //    options.addArguments("--disable-notifications");  // Disable all notifications
-
-        // Initialize ChromeDriver with the specified options
-        driver = new ChromeDriver(options);
-	    WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(50));
-	    WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("alertTriggerButton")));
-
-	    wait.until(ExpectedConditions.alertIsPresent());
-	    Alert alert = driver.switchTo().alert();
-	    System.out.println(alert.getText());
-	    alert.accept();
+	public void select_view_all_cart() throws InterruptedException {
+		Thread.sleep(1000);
+	//	login.click_Home();
+//	    Alert alert = driver.switchTo().alert();
+//	    System.out.println(alert.getText());
+//	    alert.accept();
+		   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='slds-button' and contains(text(), 'View All Cards')])[2]")));
+		//login.clickViewAll();
 	}
 	@And("list out the all drop down values")
 	public void list_out_the_all_drop_down_values() {
 		login.clickCategory();
 	}
 
-	
+	 @Then("select the contact menu")
+	    public void select_the_contact_menu() throws InterruptedException {
+		 Thread.sleep(1000);
+	       login.click_contact();
+	       
+	    }
+
+	    @Then("check whether all listed tap are visible")
+	    public void check_whether_all_listed_tap_are_visible() throws InterruptedException {
+	    	Thread.sleep(1000);
+	    	login.isContact_Import_Displayed();
+	 	   System.out.println("Import");
+
+	    	login.isContact_SendListEmail_Displayed();
+		 	   System.out.println("SendListEmail");
+
+	    	login.isContact_AddToCadence_Displayed();
+		 	   System.out.println("AddToCadence");
+
+	    	login.isContact_New_Displayed();
+		 	   System.out.println("New");
+
+	    	login.isContact_AssignLable_Displayed();
+		 	   System.out.println("AssignLable");
+
+		 	   driver.quit();
+	      
+	    }
+	    @Then("select Home menu")
+	    public void select_home_menu() throws InterruptedException {
+	    	Thread.sleep(1200);
+	        login.click_Home();
+		 	   System.out.println("Home Menu Visible");
+
+	    }
+
+	    @Then("select contact menu")
+	    public void select_contact_menu() {
+	        login.click_contact();
+		 	   System.out.println("contact Menu Visible");
+
+	    }
+
+	    @Then("select Accounts menu")
+	    public void select_accounts_menu() {
+	        login.click_accounts();
+		 	   System.out.println("accounts Menu Visible");
+
+	    }
+
+	    @Then("select Sales menu")
+	    public void select_sales_menu() {
+	        login.click_sales();
+		 	   System.out.println("sales Menu Visible");
+
+	    }
+
+	    @Then("select servies menu")
+	    public void select_servies_menu() {
+	        login.click_service();
+		 	   System.out.println("service Menu Visible");
+
+	        driver.quit();
+	    }
+
+
+
 
 	
 
