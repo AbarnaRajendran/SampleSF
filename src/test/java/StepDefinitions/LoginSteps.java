@@ -95,8 +95,8 @@ public class LoginSteps {
 
 	@Then("select the contact menu")
 	public void select_the_contact_menu() throws InterruptedException {
-		Thread.sleep(1000);
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+	//	Thread.sleep(1000);
+		//driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 		login.click_contact();
 		System.out.println("contact Menu Visible");

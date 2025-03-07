@@ -3,7 +3,6 @@ package Pages;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -21,14 +20,14 @@ public class LoginPage {
 	By lbl_logo = By.id("logo");
 	By btn_viewAllCard = By.xpath("(//*[contains(text(),'View All Cards')])[1]");
 	By btn_category = By.id("combobox-button-228");
-	By btn_Home =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[1]");
+	By btn_Home =By.xpath("(//span[contains(text(),'Home')]/parent::a)[3]");
 	By btn_Home_Report =By.partialLinkText("View Report");
     By btn_Home_RecentRecords = By.xpath("//*[contains(text(),'Recent Records')]");
 	By btn_Home_Explorecards=By.xpath("(//*[contains(text(),'Explore Cards')])[3]");
-	By btn_account =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[3]");
-	By btn_sales =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[4]");
-	By btn_service =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[5]");
-	By btn_ViewReport=By.xpath("(//*[contains(text(),\"View Report\")])[1]");
+	By btn_account =By.xpath("(//span[contains(text(),'Accounts')]/parent::a)[1]");
+	By btn_sales =By.xpath("(//span[contains(text(),'Sales')]/parent::a)[1]");
+	By btn_service =By.xpath("(//span[contains(text(),'Service')]/parent::a)[1]");
+	By btn_ViewReport=By.xpath("(//*[contains(text(),'View Report')])[1]");
 
 //	By btn_Contact_import =By.xpath("//*[text()='Import']");
 
@@ -38,7 +37,7 @@ public class LoginPage {
 	By btn_Contact_AddToCadence =By.xpath("//*[text()='Add to Cadence']");
 	By btn_Contact_New =By.xpath("//*[text()='New']");
 	By btn_Contact_AssignLable =By.xpath("//*[text()='Assign Label']");
-	By btn_contact =By.xpath("(//*[@class='verticalNavMenuListItem slds-var-m-top_x-small'])[2]");
+	By btn_contact =By.xpath("(//span[contains(text(),'Contacts')]/parent::a)[1]");
 
 	By btn_Accounts_New=By.xpath("(//*[@class='forceActionLink'])[1]");
 	By btn_Accounts_Import=By.xpath("(//*[@class='forceActionLink'])[2]");
@@ -156,19 +155,19 @@ public class LoginPage {
 
     public void scrollReport() {
         WebElement Scroll_Report =	driver.findElement(btn_Home_Report);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_Report);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_Report);
     }
     public void scrollToRecentRecords() {
         WebElement Scroll_RecentRecords =	driver.findElement(btn_Home_RecentRecords);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_RecentRecords);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_RecentRecords);
     }
     public void scrollToViewReports() {
         WebElement Scroll_ViewReports =	driver.findElement(btn_ViewReport);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_ViewReports);
-    	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_ViewReports);
+//    	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
     }
     public void TxtFirstName_1() {
