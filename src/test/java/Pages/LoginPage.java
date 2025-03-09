@@ -37,7 +37,7 @@ public class LoginPage {
 	By btn_Contact_AddToCadence =By.xpath("//*[text()='Add to Cadence']");
 	By btn_Contact_New =By.xpath("//*[text()='New']");
 	By btn_Contact_AssignLable =By.xpath("//*[text()='Assign Label']");
-	By btn_contact =By.xpath("(//span[contains(text(),'Contacts')]/parent::a)[1]");
+	By btn_contact =By.xpath("(//*[contains(@class,'verticalNavMenuListItem ')])[2]");
 
 	By btn_Accounts_New=By.xpath("(//*[@class='forceActionLink'])[1]");
 	By btn_Accounts_Import=By.xpath("(//*[@class='forceActionLink'])[2]");
