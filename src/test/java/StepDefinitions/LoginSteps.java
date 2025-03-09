@@ -73,8 +73,8 @@ public class LoginSteps {
 
 	@Then("select view all cart")
 	public void select_view_all_cart() throws InterruptedException {
-		Thread.sleep(1000);
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+	Thread.sleep(1000);
+	//	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 		//	login.click_Home();
 		//	    Alert alert = driver.switchTo().alert();
