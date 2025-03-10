@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Then;
 
@@ -23,7 +26,7 @@ public class LoginPage {
 	By lbl_logo = By.id("logo");
 	By btn_viewAllCard = By.xpath("(//*[contains(text(),'View All Cards')])[1]");
 	By btn_category = By.id("combobox-button-228");
-	By btn_Home =By.xpath("(//*[contains(text(),'Home')])[6]//parent::a");
+	By btn_Home =By.xpath("//a[@href='/lightning/app/06mdN000003SoUnQAK']");
 	By btn_Home_Report =By.partialLinkText("View Report");
     By btn_Home_RecentRecords = By.xpath("//*[contains(text(),'Recent Records')]");
 	By btn_Home_Explorecards=By.xpath("(//*[contains(text(),'Explore Cards')])[3]");
@@ -40,7 +43,7 @@ public class LoginPage {
 	By btn_Contact_AddToCadence =By.xpath("//*[text()='Add to Cadence']");
 	By btn_Contact_New =By.xpath("//*[text()='New']");
 	By btn_Contact_AssignLable =By.xpath("//*[text()='Assign Label']");
-	By btn_contact =By.xpath("(//*[contains(@class,'verticalNavMenuListItem ')])[2]");
+	By btn_contact =By.xpath("(//*[contains(text(),'Contacts')])[2]//parent::a");
 
 	By btn_Accounts_New=By.xpath("(//*[@class='forceActionLink'])[1]");
 	By btn_Accounts_Import=By.xpath("(//*[@class='forceActionLink'])[2]");
@@ -105,12 +108,19 @@ public class LoginPage {
     }
     public void click_Home() {
    //     jsExecutor = (JavascriptExecutor) driver;
-        jsClick(btn_Home); // JS click instead of regular click()
+        //jsClick(btn_Home); // JS click instead of regular click()
+        //WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(btn_Home));
+        //jsClick(btn_Home);
 
-    //	driver.findElement(btn_Home).jsClick();
+    driver.findElement(btn_Home).click();
     	
     }
-    public void click_contact() {
+//    private FluentWait<WebDriver> WebDriverWait(WebDriver driver2, int i) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	public void click_contact() {
     	driver.findElement(btn_contact).click();
     	
     }

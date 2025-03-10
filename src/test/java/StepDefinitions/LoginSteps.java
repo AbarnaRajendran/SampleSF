@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.Alert;
 
 import Pages.LoginPage;
@@ -82,11 +83,11 @@ public class LoginSteps {
 	}
 
 	@Then("select view all cart")
-	public void select_view_all_cart() throws Throwable   {
-	     Thread.sleep(1000);
+	public void select_view_all_cart()   {
 	//	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-
-		login.click_Home();
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+		    WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/lightning/app/06mdN000003SoUnQAK']")));
+		//login.click_Home();
 		//	    Alert alert = driver.switchTo().alert();
 		//	    System.out.println(alert.getText());
 		//	    alert.accept();
@@ -95,6 +96,7 @@ public class LoginSteps {
 		//	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='slds-button' and contains(text(), 'View All Cards')])[2]")));
 		login.clickViewAll();
 	}
+
 	@And("list out the all drop down values")
 	public void list_out_the_all_drop_down_values() throws InterruptedException {
 		Thread.sleep(1500);
