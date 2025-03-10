@@ -20,215 +20,37 @@ public class LoginPage {
     JavascriptExecutor jsExecutor;
 
 	
-	By txt_username = By.id("username");
-	By txt_password = By.id("password");
-	By btn_Login = By.id("Login");
-	By lbl_logo = By.id("logo");
-	By btn_viewAllCard = By.xpath("(//*[contains(text(),'View All Cards')])[1]");
-	By btn_category = By.id("combobox-button-228");
-	By btn_Home =By.xpath("//a[@href='/lightning/app/06mdN000003SoUnQAK']");
-	By btn_Home_Report =By.partialLinkText("View Report");
-    By btn_Home_RecentRecords = By.xpath("//*[contains(text(),'Recent Records')]");
-	By btn_Home_Explorecards=By.xpath("(//*[contains(text(),'Explore Cards')])[3]");
-	By btn_account =By.xpath("(//span[contains(text(),'Accounts')]/parent::a)[1]");
-	By btn_sales =By.xpath("(//span[contains(text(),'Sales')]/parent::a)[1]");
-	By btn_service =By.xpath("(//span[contains(text(),'Service')]/parent::a)[1]");
-	By btn_ViewReport=By.xpath("(//*[contains(text(),'View Report')])[1]");
-    By btn_ViewProfile=By.id("tt-for-48:205;a");
-//	By btn_Contact_import =By.xpath("//*[text()='Import']");
+	By lbl_Logo = By.xpath("/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]");
+	By btn_login = By.xpath("//*[contains(text(),' Signup / Login')]");
+	
+	By txt_user = By.xpath("//input[@placeholder='Name']");
+	By txt_email = By.xpath("//input[@data-qa='signup-email']");
 
-	By btn_Analytics=By.xpath("(//*[contains(text(),'Analytics')])[1]");
-	By btn_Contact_import =By.xpath("(//*[@class=\"forceActionLink\"])[1]");
-	By btn_Contact_SendListEmail =By.xpath("//*[text()='Send List Email']");
-	By btn_Contact_AddToCadence =By.xpath("//*[text()='Add to Cadence']");
-	By btn_Contact_New =By.xpath("//*[text()='New']");
-	By btn_Contact_AssignLable =By.xpath("//*[text()='Assign Label']");
-	By btn_contact =By.xpath("(//*[contains(text(),'Contacts')])[2]//parent::a");
+	By btn_signup = By.xpath("//button[normalize-space()='Signup']");
 
-	By btn_Accounts_New=By.xpath("(//*[@class='forceActionLink'])[1]");
-	By btn_Accounts_Import=By.xpath("(//*[@class='forceActionLink'])[2]");
-	By btn_Accounts_AssignLabel=By.xpath("(//*[@class='forceActionLink'])[3]");
-
-	By btn_FirstName_1 =By.xpath("(//*[@data-label='First Name'])[1]");
-	By btn_FirstName_2 =By.xpath("(//*[@data-label='First Name'])[3]");
-	By btn_FirstName_3 =By.xpath("(//*[@data-label='First Name'])[5]");
-	By btn_LastName_1 =By.xpath("(//*[@data-label='Last Name'])[1]");
-	By btn_LastName_2 =By.xpath("(//*[@data-label='Last Name'])[3]");
-	By btn_LastName_3 =By.xpath("(//*[@data-label='Last Name'])[5]");
-
+	
 	public LoginPage(WebDriver driver)
 	
 	{
 		this.driver=driver;
 		  this.jsExecutor = (JavascriptExecutor) driver; 
 	}
-
-	  public void jsClick(By elementLocator) {
-	        WebElement element = driver.findElement(elementLocator);
-	        jsExecutor.executeScript("arguments[0].click();", element);
+	 public void isAppLogoDisplayed() {
+	    	driver.findElement(lbl_Logo).isDisplayed();
+	    	
 	    }
-
-	
-	public void clickViewAll() {
-		driver.findElement(btn_viewAllCard).click();
-	
-	}
-	public void clickCategory() {
-	 driver.findElement(btn_category).click();
-	
-	}
-	public void selectContact() {
-		 driver.findElement(btn_contact).click();
-		
-		}
-		
-	
-	public void enterUsername(String username) {
-		driver.findElement(txt_username).sendKeys(username);
-	
-	}
-	public void enterPassword(String password) {
-		driver.findElement(txt_password).sendKeys(password);
-	
-	}
-	public void loginValidUser(String username,String password) {
-		driver.findElement(txt_username).sendKeys(username);
-
-		driver.findElement(txt_password).sendKeys(password);
-	driver.findElement(btn_Login).click();
-	}
-	
-	public void clickLogin() {
-		driver.findElement(btn_Login).click();
-	
-	}
-    public void isAppLogoDisplayed() {
-    	driver.findElement(lbl_logo).isDisplayed();
-    	
-    }
-    public void click_Home() {
-   //     jsExecutor = (JavascriptExecutor) driver;
-        //jsClick(btn_Home); // JS click instead of regular click()
-        //WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(btn_Home));
-        //jsClick(btn_Home);
-
-    driver.findElement(btn_Home).click();
-    	
-    }
-//    private FluentWait<WebDriver> WebDriverWait(WebDriver driver2, int i) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	public void click_contact() {
-    	driver.findElement(btn_contact).click();
-    	
-    }
-    public void click_accounts() {
-    	driver.findElement(btn_account).click();
-    	
-    }
-    public void click_sales() {
-    	driver.findElement(btn_sales).click();
-    	
-    }
-    public void click_service() {
-    	driver.findElement(btn_service).click();
-    	
-    }
-    public void click_viewProfile() {
-    	driver.findElement(btn_ViewProfile).click();
-    	
-    }
-    
-	
-    public void isContact_Import_Displayed() {
-    	driver.findElement(btn_Contact_import).isDisplayed();
-   
-    }
-    public void isAccount_New_Displayed() {
-    	driver.findElement(btn_Accounts_New).isDisplayed();
-   
-    }
-    public void isAccount_Import_Displayed() {
-    	driver.findElement(btn_Accounts_Import).isDisplayed();
-   
-    }
-    public void isAccount_AssignLabel_Displayed() {
-    	driver.findElement(btn_Accounts_AssignLabel).isDisplayed();
-   
-    }
-    public void isContact_SendListEmail_Displayed() {
-    	driver.findElement(btn_Contact_SendListEmail).isDisplayed();
-   
-    }
-    public void isContact_AddToCadence_Displayed() {
-    	driver.findElement(btn_Contact_AddToCadence).isDisplayed();
-   
-    }
-    public void isContact_New_Displayed() {
-    	driver.findElement(btn_Contact_New).isDisplayed();
-   
-    }
-    public void isContact_AssignLable_Displayed() {
-    	driver.findElement(btn_Contact_AssignLable).isDisplayed();
-    }
-    public void btn_Analytics() {
-    	driver.findElement(btn_Contact_AssignLable).click();
-    }
-
-    public void scrollReport() {
-        WebElement Scroll_Report =	driver.findElement(btn_Home_Report);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_Report);
-    }
-    public void scrollToRecentRecords() {
-        WebElement Scroll_RecentRecords =	driver.findElement(btn_Home_RecentRecords);
-       JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_RecentRecords);
-    }
-    public void scrollToViewReports() {
-        WebElement Scroll_ViewReports =	driver.findElement(btn_ViewReport);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_ViewReports);
-    	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-
-    }
-    public void TxtFirstName_1() {
-    	WebElement Txt1=	driver.findElement(btn_FirstName_1);
-    	String text = Txt1.getText();
-    	System.out.println("First Name Text: " + text); 
-    }
-    public void TxtFirstName_2() {
-    	WebElement Txt2=	driver.findElement(btn_FirstName_2);
-    	String text = Txt2.getText();
-    	System.out.println("First Name Text: " + text); 
-    }
-    public void TxtFirstName_3() {
-    	WebElement Txt3=	driver.findElement(btn_FirstName_3);
-    	String text = Txt3.getText();
-    	System.out.println("First Name Text: " + text); 
-    }
-    public void TxtLastName_1() {
-    	WebElement Txt11=	driver.findElement(btn_LastName_1);
-    	String text = Txt11.getText();
-    	System.out.println("First Name Text: " + text); 
-    }
-    
-    public void TxtLastName_2() {
-    	WebElement Txt12=	driver.findElement(btn_LastName_2);
-    	String text = Txt12.getText();
-    	System.out.println("First Name Text: " + text); 
-    }
-    public void TxtLastName_3() {
-    	WebElement Txt13=	driver.findElement(btn_LastName_1);
-	String text = Txt13.getText();
-	System.out.println("First Name Text: " + text);
-    }
-    public void Txt_ExploreCards() {
-    	WebElement TxtExplore=	driver.findElement(btn_Home_Explorecards);
-    	String text = TxtExplore.getText();
-    	System.out.println("First Name Text: " + text); 
-    }
-   
+	 public void clickLogin() {
+	    	driver.findElement(btn_login).click();
+	    	
+	    }
+	 public void EnterUser() {
+	    	driver.findElement(txt_user).sendKeys("Abarna");
+	    	
+	    }
+	 public void EnterEmail() {
+	    	driver.findElement(txt_email).sendKeys("abarna.rajendran@expleo");
+	    }
+	 public void clickSignup() {
+	    	driver.findElement(btn_signup).click();
+	    }
 }
