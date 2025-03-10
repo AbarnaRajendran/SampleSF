@@ -83,6 +83,34 @@ public class LoginSteps {
 	   driver.quit();
 	}
 
+	@Given("enter the valid email address")
+	public void enter_the_valid_email_address() {
+	    login.EnterValidEmail();
+	}
+
+	@Given("Enter the password in the field")
+	public void enter_the_password_in_the_field() {
+		login.EnterPassword();
+	    
+	}
+	@Then("Click the Login button")
+	public void click_the_login_button() {
+	   login.click_Login();
+	}
+	@Given("enter the invalid email address")
+	public void enter_the_invalid_email_address() {
+	   login.EnterInValidEmail();
+	}
+
+	@Given("Enter the invalid password in the field")
+	public void enter_the_invalid_password_in_the_field() {
+	    login.EnterInPassword();
+	}
+
+
+
+
+
 
 
 	

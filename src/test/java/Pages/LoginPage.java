@@ -27,7 +27,9 @@ public class LoginPage {
 	By txt_email = By.xpath("//input[@data-qa='signup-email']");
 
 	By btn_signup = By.xpath("//button[normalize-space()='Signup']");
-
+	By txt_Valid_email = By.xpath("//input[@data-qa='login-email']");
+	By txt_Password = By.xpath("//input[@placeholder='Password']");
+    By btn_Log =By.xpath("//button[normalize-space()='Login']");
 	
 	public LoginPage(WebDriver driver)
 	
@@ -52,5 +54,21 @@ public class LoginPage {
 	    }
 	 public void clickSignup() {
 	    	driver.findElement(btn_signup).click();
+	    }
+	 public void EnterValidEmail() {
+	    	driver.findElement(txt_Valid_email).sendKeys("abarnaraj@gmail.com");
+	    }
+	 public void EnterPassword() {
+	    	driver.findElement(txt_Password).sendKeys("AbarnaRaj");
+	    }
+	 public void click_Login() {
+	    	driver.findElement(btn_Log).click();
+	    	
+	    }
+	 public void EnterInValidEmail() {
+	    	driver.findElement(txt_Valid_email).sendKeys("abarnaraj@gmail.commmm");
+	    }
+	 public void EnterInPassword() {
+	    	driver.findElement(txt_Password).sendKeys("AbarnaRajjjjj");
 	    }
 }
