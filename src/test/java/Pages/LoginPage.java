@@ -3,6 +3,7 @@ package Pages;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -13,6 +14,8 @@ import io.cucumber.java.en.Then;
 public class LoginPage {
     
 	WebDriver driver;
+    JavascriptExecutor jsExecutor;
+
 	
 	By txt_username = By.id("username");
 	By txt_password = By.id("password");
@@ -20,7 +23,7 @@ public class LoginPage {
 	By lbl_logo = By.id("logo");
 	By btn_viewAllCard = By.xpath("(//*[contains(text(),'View All Cards')])[1]");
 	By btn_category = By.id("combobox-button-228");
-	By btn_Home =By.xpath("(//span[contains(text(),'Home')]/parent::a)[3]");
+	By btn_Home =By.xpath("(//*[contains(text(),'Home')])[6]//parent::a");
 	By btn_Home_Report =By.partialLinkText("View Report");
     By btn_Home_RecentRecords = By.xpath("//*[contains(text(),'Recent Records')]");
 	By btn_Home_Explorecards=By.xpath("(//*[contains(text(),'Explore Cards')])[3]");
@@ -28,7 +31,7 @@ public class LoginPage {
 	By btn_sales =By.xpath("(//span[contains(text(),'Sales')]/parent::a)[1]");
 	By btn_service =By.xpath("(//span[contains(text(),'Service')]/parent::a)[1]");
 	By btn_ViewReport=By.xpath("(//*[contains(text(),'View Report')])[1]");
-
+    By btn_ViewProfile=By.id("tt-for-48:205;a");
 //	By btn_Contact_import =By.xpath("//*[text()='Import']");
 
 	By btn_Analytics=By.xpath("(//*[contains(text(),'Analytics')])[1]");
@@ -54,8 +57,13 @@ public class LoginPage {
 	
 	{
 		this.driver=driver;
+		  this.jsExecutor = (JavascriptExecutor) driver; 
 	}
 
+	  public void jsClick(By elementLocator) {
+	        WebElement element = driver.findElement(elementLocator);
+	        jsExecutor.executeScript("arguments[0].click();", element);
+	    }
 
 	
 	public void clickViewAll() {
@@ -96,8 +104,10 @@ public class LoginPage {
     	
     }
     public void click_Home() {
-    	
-    	driver.findElement(btn_Home).click();
+   //     jsExecutor = (JavascriptExecutor) driver;
+        jsClick(btn_Home); // JS click instead of regular click()
+
+    //	driver.findElement(btn_Home).jsClick();
     	
     }
     public void click_contact() {
@@ -114,6 +124,10 @@ public class LoginPage {
     }
     public void click_service() {
     	driver.findElement(btn_service).click();
+    	
+    }
+    public void click_viewProfile() {
+    	driver.findElement(btn_ViewProfile).click();
     	
     }
     
@@ -155,19 +169,19 @@ public class LoginPage {
 
     public void scrollReport() {
         WebElement Scroll_Report =	driver.findElement(btn_Home_Report);
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_Report);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_Report);
     }
     public void scrollToRecentRecords() {
         WebElement Scroll_RecentRecords =	driver.findElement(btn_Home_RecentRecords);
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_RecentRecords);
+       JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_RecentRecords);
     }
     public void scrollToViewReports() {
         WebElement Scroll_ViewReports =	driver.findElement(btn_ViewReport);
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_ViewReports);
-//    	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", Scroll_ViewReports);
+    	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
     }
     public void TxtFirstName_1() {

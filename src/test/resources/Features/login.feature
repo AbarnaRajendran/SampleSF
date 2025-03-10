@@ -25,7 +25,7 @@ Feature: Test login Functionality
     #Examples: 
       #| username                   | password   |
       #| sabari03214-plzj@force.com | Sales@1234 |
-  #
+  
    @test3   
   Scenario Outline: Check the contact list taps are visible 
     Given User Enter "<username>" and "<password>"
@@ -36,7 +36,7 @@ Feature: Test login Functionality
     Examples: 
       | username                   | password   |
       | sabari03214-plzj@force.com | Sales@1234 |
-  #
+  
   #@test4  
   #Scenario Outline: Check all menus in Dashboard Page 
     #Given User Enter "<username>" and "<password>"
@@ -99,7 +99,7 @@ Feature: Test login Functionality
     #Examples: 
       #| username                   | password   |
       #| sabari03214-plzj@force.com | Sales@1234 |
- #
+ 
   #@test8
   #Scenario Outline: Check sales tap in the dashboard
     #Given User Enter "<username>" and "<password>"
@@ -115,4 +115,20 @@ Feature: Test login Functionality
     #Examples: 
       #| username                   | password   |
       #| sabari03214-plzj@force.com | Sales@1234 |
+  #
   
+  #@test9
+  #Scenario Outline: Check the Prife details in the dashoard page
+    #Given User Enter "<username>" and "<password>"
+    #When Verify the logo of the current page
+    #And User click the login button
+    #Then select Home menu
+    #And check whether view profile tap accessible 
+    #Then Close the Browser
+    #
+    #
+    #
+#
+    #Examples: 
+      #| username                   | password   |
+      #| sabari03214-plzj@force.com | Sales@1234 |

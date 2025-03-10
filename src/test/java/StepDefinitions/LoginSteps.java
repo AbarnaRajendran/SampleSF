@@ -30,15 +30,25 @@ public class LoginSteps {
 	
 	WebDriver driver;
 	LoginPage login;
+	
 	@Given("User into the Login Page")
 	public void user_into_the_login_page() {
 
 		System.setProperty("webDriver.chrome.driver", "C:/Users/10669/git/Demo_Guru/src/test/resources/drivers/chromedriver_proxy.exe");
-		driver= new ChromeDriver();
+		 ChromeOptions options = new ChromeOptions();
+	        
+	        // Add the --incognito argument to launch Chrome in incognito mode
+	        options.addArguments("--incognito");
+	        
+	        // Initialize the WebDriver with the ChromeOptions
+	         driver = new ChromeDriver(options);
+		
+	//	driver= new ChromeDriver();
 		//driver = new EdgeDriver();
 		//  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		driver.manage().window().maximize();
+		
 		driver.get("https://login.salesforce.com/?locale=in");
 
 	}
@@ -72,11 +82,11 @@ public class LoginSteps {
 	}
 
 	@Then("select view all cart")
-	public void select_view_all_cart() throws InterruptedException {
-	Thread.sleep(1000);
+	public void select_view_all_cart() throws Throwable   {
+	     Thread.sleep(1000);
 	//	driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
-		//	login.click_Home();
+		login.click_Home();
 		//	    Alert alert = driver.switchTo().alert();
 		//	    System.out.println(alert.getText());
 		//	    alert.accept();
@@ -127,8 +137,8 @@ public class LoginSteps {
 	}
 	@Then("select Home menu")
 	public void select_home_menu() throws InterruptedException {
-		Thread.sleep(1000);
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+	//	Thread.sleep(1000);
+		//driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 		login.click_Home();
 		System.out.println("Home Menu Visible");
@@ -265,6 +275,13 @@ public class LoginSteps {
 		driver.quit();
 	}
 
+	@And("check whether view profile tap accessible ")
+	public void check_whether_view_profile_tap_accessible () {
+		login.click_viewProfile();
+		driver.quit();
+	}
+	}
+
 
 
 
@@ -273,4 +290,4 @@ public class LoginSteps {
 
 
 
-}
+
